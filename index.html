@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS Accessibility Pro: accessible SwiftUI and UIKit with Claude</title>
+<meta name="description" content="A Claude skill and connector that makes iOS apps accessible as you build them. Start free with Dynamic Type; go Pro for VoiceOver, Voice Control, contrast, audits and WCAG.">
+<link rel="preload" href="fonts/atkinson-hyperlegible-next-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">iOS Accessibility Pro <span>by Accessible Mobile Apps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#free">Free skill</a></li>
+        <li><a href="#pro">What Pro covers</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="setup.html">Setup</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">Accessible iOS apps, written that way from the first line.</h1>
+      <p class="lede">A Claude skill and connector for SwiftUI and UIKit. Claude builds, audits and fixes your screens for VoiceOver, Voice Control, large text and more, as it writes them.</p>
+      <div class="actions">
+        <a class="button" href="downloads/ios-dynamic-type.zip" download>Download the free skill</a>
+        <a class="button secondary" href="#pricing">See Pro pricing</a>
+      </div>
+    </div>
+
+    <div class="demo" aria-labelledby="demo-title">
+      <h2 id="demo-title" class="demo-title">Try it: one settings screen at every text size</h2>
+      <div class="demo-controls">
+        <label for="size">Text size <span class="size-readout" id="size-readout">Large (default), 17 pt</span></label>
+        <input id="size" type="range" min="0" max="11" step="1" value="3" aria-describedby="size-readout">
+        <div class="switch-row">
+          <input id="adaptive" type="checkbox">
+          <label for="adaptive">Stack rows at large sizes, like the free skill does</label>
+        </div>
+      </div>
+
+      <div class="phone" id="phone" role="img" aria-labelledby="phone-desc">
+        <p class="phone-title" aria-hidden="true">Settings</p>
+        <ul class="phone-list" aria-hidden="true">
+          <li class="phone-row">
+            <span class="icon" style="background:#c4271d"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22a2.5 2.5 0 0 0 2.45-2h-4.9A2.5 2.5 0 0 0 12 22Zm7-6V11a7 7 0 0 0-5.5-6.84V3a1.5 1.5 0 0 0-3 0v1.16A7 7 0 0 0 5 11v5l-2 2v1h18v-1Z"/></svg></span>
+            <span class="name">Notifications</span><span class="value">Enabled</span>
+          </li>
+          <li class="phone-row">
+            <span class="icon" style="background:#a34f00"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 10.4 3.6 2.1-.9 1.6L11 13V6h2Z"/></svg></span>
+            <span class="name">Leave earlier</span><span class="value">10 minutes</span>
+          </li>
+          <li class="phone-row">
+            <span class="icon" style="background:#1f5fd1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .7-5.3 4.7 1.6 7L12 17.4 5.7 21l1.6-7L2 9.3l7-.7Z"/></svg></span>
+            <span class="name">Subscription</span><span class="value">Free plan</span>
+          </li>
+        </ul>
+      </div>
+      <p class="demo-note">The phone is drawn at 70% of real size.</p>
+      <p class="demo-caption" id="phone-desc" aria-live="polite">At the default size every row fits on one line.</p>
+    </div>
+  </div>
+</section>
+
+<section id="free" aria-labelledby="free-title">
+  <div class="wrap">
+    <div class="prose">
+      <h2 id="free-title">Start free with Dynamic Type</h2>
+      <p>Many people raise their iPhone's text size, and some use the largest accessibility sizes. The free <code>ios-dynamic-type</code> skill teaches Claude to make every screen work at every size, up to the largest accessibility size.</p>
+      <ul class="plain-list">
+        <li>Text styles and scaled custom fonts in SwiftUI, UIKit and storyboards</li>
+        <li>Rows that stack instead of truncating, with the <code>AStack</code> adaptive stack</li>
+        <li>Screens that scroll in landscape at the largest size, sheets that grow, bars with the Large Content Viewer</li>
+        <li>A scan script that finds fixed fonts, fixed heights, single-line limits and missing scroll views</li>
+        <li>An audit report mapped to WCAG 1.4.4 Resize Text and 1.4.10 Reflow</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="downloads/ios-dynamic-type.zip" download>Download the free skill (zip)</a>
+        <a class="button secondary" href="setup.html#free">How to install it</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pro" aria-labelledby="pro-title">
+  <div class="wrap">
+    <div class="prose">
+      <h2 id="pro-title">Pro covers the rest of accessibility</h2>
+      <p>Pro is a connector you add to Claude. It brings the full skill: rules, reference guides and checking scripts for every assistive technology. It runs on our server, and Claude asks it for exactly what it needs while it works on your code.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <caption>What each version teaches Claude</caption>
+        <thead>
+          <tr><th scope="col">Topic</th><th scope="col">Free skill</th><th scope="col">Pro connector</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Dynamic Type and large-text layouts</th><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">VoiceOver: labels, traits, grouping, focus, rotors, announcements</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">Voice Control, Switch Control and Full Keyboard Access</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">Contrast, Dark Mode, Increase Contrast, Show Borders</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">Motion, touch targets, gestures, forms, media and captions</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">Cognitive accessibility: plain language, icon consistency</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">Full audits with severity, file and line, and fixes</th><td class="no">Dynamic Type only</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">XCTest accessibility audits and manual test scripts</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">App Store Accessibility Nutrition Labels</th><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th scope="row">WCAG 2.2, EN 301 549, European Accessibility Act, Section 508</th><td class="no">1.4.4 and 1.4.10</td><td class="yes">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="split" style="margin-top: 3rem;">
+      <div>
+        <h3>What Claude does with it</h3>
+        <ul class="plain-list">
+          <li><strong>Build:</strong> writes accessible views as it writes them, and tells you which labels it guessed.</li>
+          <li><strong>Audit:</strong> checks a screen or the whole app as a VoiceOver, Voice Control, keyboard and large-text user would, and writes a ranked report.</li>
+          <li><strong>Labels:</strong> tells you which App Store Accessibility Nutrition Labels you can claim, per device.</li>
+          <li><strong>Copy review:</strong> finds hard-to-read text and instructions like "tap the red button", and suggests plainer wording.</li>
+          <li><strong>Test:</strong> adds accessibility UI tests to your project.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Your code stays yours</h3>
+        <p>When Claude runs a check, it sends the files it's checking to the server. They're written to a temporary folder, checked, and deleted straight away. We don't keep your code or log it.</p>
+        <p>Read the <a href="privacy.html">privacy notice</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <h2 id="pricing-title">Pricing</h2>
+    <div class="price-block">
+      <h3>iOS Accessibility Pro</h3>
+      <p class="price">€9 <small>per month</small></p>
+      <p>Try it free for 7 days. Cancel anytime from your billing page.</p>
+      <ul class="plain-list">
+        <li>Works in the Claude app and Claude Code</li>
+        <li>Updated as iOS and the guidelines change</li>
+        <li>Up to 400 tool calls a day, enough for a full app audit</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="https://ios-a11y-pro.fly.dev/checkout">Start the free trial</a>
+      </div>
+      <p style="margin-top: 1rem; color: var(--muted);">You pay on Stripe. After you pay, you'll see your API key and the steps to connect it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <h2 id="faq-title">Questions</h2>
+    <details>
+      <summary>Do I need the free skill if I buy Pro?</summary>
+      <p>It's not required, but keep it. It handles Dynamic Type without a network call and tells Claude to use the Pro connector for everything else.</p>
+    </details>
+    <details>
+      <summary>Which Claude plans does it work with?</summary>
+      <p>Pro works anywhere you can add a custom connector, including the Claude app and Claude Code. The free skill works anywhere Claude supports skills.</p>
+    </details>
+    <details>
+      <summary>Does it replace testing with real people?</summary>
+      <p>No. It catches most problems in code and tells you what to test on a device. Testing with disabled users is still the best check there is.</p>
+    </details>
+    <details>
+      <summary>Can I use it for client work?</summary>
+      <p>Yes. One subscription is for one person. Use it on as many apps as you like, for yourself or your clients.</p>
+    </details>
+    <details>
+      <summary>Who makes it?</summary>
+      <p>Robin Kanatzar, CEO of Accessible Mobile Apps. I'm an iOS engineer, conference speaker and author of the Appt News newsletter on mobile accessibility.</p>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <ul>
+      <li><a href="setup.html">Setup</a></li>
+      <li><a href="privacy.html">Privacy and legal notice</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="mailto:hello@example.com">Contact</a></li>
+    </ul>
+    <p>© 2026 Accessible Mobile Apps. Not affiliated with Apple or Anthropic. Typeface: Atkinson Hyperlegible Next, by the Braille Institute.</p>
+  </div>
+</footer>
+
+<script src="demo.js" defer></script>
+</body>
+</html>

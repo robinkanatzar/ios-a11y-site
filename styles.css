@@ -1,0 +1,165 @@
+/* iOS Accessibility Pro — site styles.
+   Type: Atkinson Hyperlegible Next (Braille Institute; made for low-vision readers), self-hosted.
+   Sizes in rem so the whole page follows the reader's browser text size. */
+
+@font-face { font-family: "Atkinson Next"; font-weight: 400; font-display: swap;
+  src: url("fonts/atkinson-hyperlegible-next-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Atkinson Next"; font-weight: 700; font-display: swap;
+  src: url("fonts/atkinson-hyperlegible-next-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Atkinson Next"; font-weight: 400; font-display: swap;
+  src: url("fonts/atkinson-hyperlegible-next-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Atkinson Next"; font-weight: 700; font-display: swap;
+  src: url("fonts/atkinson-hyperlegible-next-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+:root {
+  color-scheme: light dark;
+  --ink: #14213d;        /* text, 15.9:1 on paper */
+  --paper: #ffffff;
+  --mist: #edf1f7;       /* panels, table stripes */
+  --line: #8a96ab;       /* borders, 3.1:1 on paper */
+  --muted: #475569;      /* secondary text, 7.6:1 */
+  --accent: #2f3fcf;     /* links and the main button, 7.1:1; white on it 7.1:1 */
+  --accent-ink: #ffffff;
+  --ok: #17703a;         /* "covered" marks, 6.0:1 */
+  --phone: #f2f2f7;      /* iOS grouped background */
+  --phone-row: #ffffff;
+  --font: "Atkinson Next", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ios: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  --measure: 66ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #eef2f8; --paper: #0f1626; --mist: #1a2438; --line: #6f7d96; --muted: #b8c2d3;
+    --accent: #9fb0ff; --accent-ink: #0f1626; --ok: #6fd393; --phone: #000000; --phone-row: #1c1c1e;
+  }
+}
+
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1.125rem/1.6 var(--font);
+  -webkit-text-size-adjust: 100%; text-size-adjust: 100%;
+}
+img, svg { max-width: 100%; }
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 0.08em; }
+a:hover { text-decoration-thickness: 0.14em; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
+pre { background: var(--mist); padding: 1rem 1.125rem; border-radius: 6px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; }
+p code, li code, td code { background: var(--mist); padding: 0.08em 0.3em; border-radius: 4px; }
+
+.skip { position: absolute; left: 1rem; top: -10rem; background: var(--paper); color: var(--accent); padding: 0.75rem 1rem; z-index: 10; }
+.skip:focus { top: 1rem; }
+
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+.prose { max-width: var(--measure); }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; align-items: center; justify-content: space-between; padding-block: 1rem; }
+.brand { font-weight: 700; font-size: 1.125rem; color: var(--ink); text-decoration: none; }
+.brand span { font-weight: 400; color: var(--muted); }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.site-nav a { color: var(--ink); text-decoration: none; padding-block: 0.6rem; display: inline-block; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { text-decoration: underline; }
+
+/* Type scale (1.25) */
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.6em; }
+h1 { font-size: clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem); font-weight: 700; letter-spacing: -0.025em; }
+h2 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.44rem); margin-top: 0; }
+h3 { font-size: 1.4rem; }
+p { margin: 0 0 1em; }
+.lede { font-size: 1.32rem; line-height: 1.5; color: var(--muted); max-width: 36ch; }
+
+section { padding-block: clamp(3rem, 2rem + 4vw, 5.5rem); }
+section + section { border-top: 1px solid var(--line); }
+
+/* Buttons */
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; margin-top: 1.75rem; }
+.button {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 3rem;
+  padding: 0.7rem 1.35rem; border-radius: 999px; font: inherit; font-weight: 700; text-decoration: none;
+  border: 2px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer;
+}
+.button:hover { filter: brightness(1.08); }
+.button.secondary { background: transparent; color: var(--accent); }
+
+/* Hero */
+.hero .wrap { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 60rem) { .hero .wrap { grid-template-columns: 1.1fr 1fr; } }
+
+/* The demo: an iPhone settings row at every text size */
+.demo { background: var(--mist); border-radius: 28px; padding: 1.25rem; }
+.demo-title { font-size: 1.25rem; margin: 0 0 1rem; }
+.demo-controls { display: grid; gap: 0.75rem; margin-bottom: 1.25rem; }
+.demo label { font-weight: 700; }
+.size-readout { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 400; }
+.demo input[type="range"] { width: 100%; min-height: 2.75rem; accent-color: var(--accent); }
+.switch-row { display: flex; gap: 0.75rem; align-items: center; min-height: 2.75rem; }
+.switch-row input { width: 1.4rem; height: 1.4rem; accent-color: var(--accent); flex: none; }
+.switch-row label { font-weight: 400; }
+
+.phone {
+  width: min(100%, 20rem); margin-inline: auto; background: var(--phone); border: 1px solid var(--line);
+  border-radius: 34px; padding: 1.1rem 0.9rem 1.4rem; font-family: var(--ios); color: var(--ink);
+  overflow: hidden;
+}
+.phone-title { font-weight: 700; margin: 0.25rem 0.4rem 0.75rem; }
+.phone-list { list-style: none; margin: 0; padding: 0; background: var(--phone-row); border-radius: 12px; }
+.phone-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; min-height: 44px; }
+.phone-row + .phone-row { border-top: 1px solid color-mix(in srgb, var(--line) 50%, transparent); }
+.phone-row .name, .phone-row .value { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.phone-row .name { flex: 1 1 auto; }
+.phone-row .value { flex: 0 1 auto; color: var(--muted); }
+.phone-row .icon { flex: none; width: 1.45em; height: 1.45em; border-radius: 0.35em; display: grid; place-items: center; color: #fff; }
+.phone-row .icon svg { width: 0.9em; height: 0.9em; }
+/* Adaptive stack: what AStack does in SwiftUI at accessibility sizes */
+.phone.adaptive.ax .phone-row { flex-direction: column; align-items: flex-start; gap: 4px; padding-block: 12px; }
+.phone.adaptive.ax .phone-row .name,
+.phone.adaptive.ax .phone-row .value { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; hyphens: auto; line-height: 1.15; }
+.demo-note { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.9rem; text-align: center; }
+.demo-caption { margin: 1rem 0 0; color: var(--muted); font-size: 1rem; }
+
+/* Comparison table */
+.table-wrap { overflow-x: auto; margin-top: 2rem; }
+table { border-collapse: collapse; width: 100%; }
+@media (max-width: 30rem) { th, td { padding: 0.7rem 0.3rem; } th:first-child, td:first-child { padding-left: 0; } td, tbody th { font-size: 1rem; } thead th { font-size: 1rem; } }
+caption { text-align: left; color: var(--muted); padding-bottom: 0.75rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.8rem 1rem; border-bottom: 1px solid var(--line); }
+thead th { font-size: 1.15rem; border-bottom-width: 2px; }
+tbody th { font-weight: 400; }
+td.yes { color: var(--ok); font-weight: 700; }
+td.no { color: var(--muted); }
+
+/* Lists of things Pro covers */
+.split { display: grid; gap: 2rem 3rem; }
+@media (min-width: 52rem) { .split { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.plain-list { padding-left: 1.2rem; margin: 0; }
+.plain-list li { margin-bottom: 0.55rem; }
+
+/* Pricing */
+.price-block { border: 2px solid var(--ink); border-radius: 20px; padding: clamp(1.5rem, 1rem + 2vw, 2.5rem); max-width: 40rem; }
+.price { font-size: clamp(2.6rem, 2rem + 2vw, 3.6rem); font-weight: 700; line-height: 1; margin: 0 0 0.25rem; }
+.price small { font-size: 1.1rem; font-weight: 400; color: var(--muted); }
+
+/* FAQ */
+details { border-bottom: 1px solid var(--line); padding-block: 0.4rem; max-width: var(--measure); }
+summary { cursor: pointer; font-weight: 700; padding-block: 0.7rem; min-height: 2.75rem; }
+details p { margin-top: 0.25rem; }
+
+/* Steps (setup page — a real sequence) */
+.steps { counter-reset: step; list-style: none; padding: 0; max-width: var(--measure); }
+.steps > li { counter-increment: step; position: relative; padding-left: 3rem; margin-bottom: 1.75rem; }
+.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0.05rem; width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--ink); color: var(--paper); font-weight: 700; display: grid; place-items: center; font-size: 1rem;
+}
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--muted); font-size: 1rem; }
+.site-footer ul { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.site-footer a { color: var(--ink); display: inline-block; padding-block: 0.5rem; }
+
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+@media (forced-colors: active) { .button, .price-block, .phone { border: 2px solid CanvasText; } }

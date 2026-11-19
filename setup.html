@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup: iOS Accessibility Pro</title>
+<meta name="description" content="Install the free Dynamic Type skill and connect iOS Accessibility Pro to the Claude app or Claude Code.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">iOS Accessibility Pro <span>by Accessible Mobile Apps</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="./#free">Free skill</a></li>
+        <li><a href="./#pro">What Pro covers</a></li>
+        <li><a href="./#pricing">Pricing</a></li>
+        <li><a href="setup.html" aria-current="page">Setup</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section aria-labelledby="setup-title">
+  <div class="wrap prose">
+    <h1 id="setup-title">Setup</h1>
+    <p class="lede">Install the free skill in a minute. If you have Pro, connect it with your API key.</p>
+  </div>
+</section>
+
+<section id="free" aria-labelledby="free-title">
+  <div class="wrap">
+    <h2 id="free-title">Install the free Dynamic Type skill</h2>
+    <h3>In the Claude app</h3>
+    <ol class="steps">
+      <li><a href="downloads/ios-dynamic-type.zip" download>Download <code>ios-dynamic-type.zip</code></a>. Don't unzip it.</li>
+      <li>In Claude, open <strong>Customize</strong>, then <strong>Skills</strong>, and upload the zip file.</li>
+      <li>Make sure the skill is turned on. Then ask Claude to build or review any SwiftUI or UIKit screen, and it uses the skill on its own.</li>
+    </ol>
+
+    <h3>In Claude Code</h3>
+    <ol class="steps">
+      <li>Download and unzip the skill into your skills folder:
+<pre>mkdir -p ~/.claude/skills
+unzip ios-dynamic-type.zip -d ~/.claude/skills</pre>
+        For one project only, use <code>.claude/skills</code> inside the project instead.</li>
+      <li>Start Claude Code in your app's folder and try: <code>Check Dynamic Type on the settings screen</code>.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="pro" aria-labelledby="pro-title">
+  <div class="wrap">
+    <h2 id="pro-title">Connect iOS Accessibility Pro</h2>
+    <p class="prose">You need the API key shown after checkout. It starts with <code>a11y_</code>. Don't have one? <a href="./#pricing">Start the free trial</a>.</p>
+
+    <h3>In the Claude app (web, desktop or mobile)</h3>
+    <ol class="steps">
+      <li>Open <strong>Settings</strong>, then <strong>Connectors</strong>, and choose <strong>Add custom connector</strong>.</li>
+      <li>Name it <strong>iOS Accessibility Pro</strong> and paste this URL, with your key at the end:
+<pre>https://ios-a11y-pro.fly.dev/mcp?key=YOUR_KEY</pre></li>
+      <li>In a chat, open the tools menu and turn on <strong>iOS Accessibility Pro</strong>.</li>
+      <li>Try it: <code>Audit the onboarding screens for accessibility</code>.</li>
+    </ol>
+
+    <h3>In Claude Code</h3>
+    <ol class="steps">
+      <li>Add the connector once:
+<pre>claude mcp add --transport http ios-a11y-pro https://ios-a11y-pro.fly.dev/mcp --header "Authorization: Bearer YOUR_KEY"</pre>
+        Add <code>--scope user</code> to use it in every project.</li>
+      <li>Check it's connected with <code>claude mcp list</code>.</li>
+      <li>Try it: <code>Which App Store Accessibility Nutrition Labels can we claim?</code></li>
+    </ol>
+
+    <h3>Keep your key private</h3>
+    <p class="prose">Anyone with your key can use your subscription. Don't commit it to a repository or share it in screenshots. If it leaks, email us and we'll replace it.</p>
+  </div>
+</section>
+
+<section aria-labelledby="help-title">
+  <div class="wrap prose">
+    <h2 id="help-title">If something doesn't work</h2>
+    <ul class="plain-list">
+      <li><strong>"A valid API key is required":</strong> the key is missing, mistyped, or the subscription has ended. Copy it again from your welcome page.</li>
+      <li><strong>"Daily limit reached":</strong> you've used today's 400 tool calls. The limit resets at midnight UTC.</li>
+      <li><strong>Claude doesn't use the connector:</strong> check it's turned on for the chat, then ask directly, for example "Use iOS Accessibility Pro to audit this screen".</li>
+    </ul>
+    <p>Still stuck? Email <a href="mailto:hello@example.com">hello@example.com</a>.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <ul>
+      <li><a href="setup.html">Setup</a></li>
+      <li><a href="privacy.html">Privacy and legal notice</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="mailto:hello@example.com">Contact</a></li>
+    </ul>
+    <p>© 2026 Accessible Mobile Apps. Not affiliated with Apple or Anthropic.</p>
+  </div>
+</footer>
+</body>
+</html>
